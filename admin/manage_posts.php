@@ -39,7 +39,7 @@ include $header_path;
             <div class="card glass-card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Daftar Semua Postingan</h4>
-                    <a href="../upload.php" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle me-1"></i> Tambah Postingan Baru</a>
+                    <a href="../upload.php" class="btn btn-primary btn-sm"><i class="bi bi-plus-circle me-1"></i> Tambah Baru</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -57,13 +57,13 @@ include $header_path;
                                 <?php if (mysqli_num_rows($result) > 0): ?>
                                     <?php while ($row = mysqli_fetch_assoc($result)): ?>
                                         <tr>
-                                            <td><img src="../uploads/<?= htmlspecialchars($row['image']) ?>" alt="" width="80" class="rounded"></td>
-                                            <td class="align-middle"><?= htmlspecialchars($row['title']) ?></td>
-                                            <td class="align-middle"><?= htmlspecialchars($row['username']) ?></td>
-                                            <td class="align-middle"><?= date('d M Y', strtotime($row['created_at'])) ?></td>
+                                            <td><img src="../uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="" width="80" class="rounded"></td>
+                                            <td class="align-middle"><?php echo htmlspecialchars($row['title']); ?></td>
+                                            <td class="align-middle"><?php echo htmlspecialchars($row['username']); ?></td>
+                                            <td class="align-middle"><?php echo date('d M Y', strtotime($row['created_at'])); ?></td>
                                             <td class="align-middle">
-                                                <a href="edit_post.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                                <a href="delete_post.php?id=<?= $row['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin ingin menghapus postingan ini?')"><i class="bi bi-trash"></i></a>
+                                                <a href="edit_post.php?id=<?php echo $row['id']; ?>" class="btn-action edit"><i class="bi bi-pencil-square"></i> Edit</a>
+                                                <a href="delete_post.php?id=<?php echo $row['id']; ?>" class="btn-action delete" onclick="return confirm('Anda yakin ingin menghapus postingan ini?')"><i class="bi bi-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endwhile; ?>
