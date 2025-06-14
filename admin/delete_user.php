@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Keamanan: Pastikan hanya admin yang bisa mengakses
+//  hanya admin yang bisa mengakses
 if (!isset($_SESSION['user_logged_in']) || $_SESSION['role'] !== 'admin') {
     header('Location: ../index.php');
     exit;
@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_logged_in']) || $_SESSION['role'] !== 'admin') {
 
 include '../config/db.php';
 
-// Pastikan ID ada dan bukan ID admin yang sedang login
+// memastikan ID ada dan bukan ID admin yang sedang login
 if (!isset($_GET['id']) || $_GET['id'] == $_SESSION['user_id']) {
     // Redirect jika mencoba menghapus diri sendiri atau ID tidak valid
     header('Location: manage_users.php');

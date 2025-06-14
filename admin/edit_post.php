@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Keamanan: Pastikan hanya admin yang bisa mengakses
+// Keamanan admin yang bisa mengakses
 if (!isset($_SESSION['user_logged_in']) || $_SESSION['role'] !== 'admin') {
     header('Location: ../index.php');
     exit;
@@ -23,8 +23,7 @@ $id = intval($_GET['id']);
 // Proses form jika ada data yang dikirim (POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = mysqli_real_escape_string($conn, $_POST['title']);
-    // Logika pembaruan data (akan ditambahkan nanti)
-    // ...
+
 
     $sql_update = "UPDATE posts SET title = ? WHERE id = ?";
     $stmt_update = mysqli_prepare($conn, $sql_update);

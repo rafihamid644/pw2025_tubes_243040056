@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Keamanan: Pastikan hanya admin yang bisa mengakses
+// Keamanan hanya admin yang bisa mengakses
 if (!isset($_SESSION['user_logged_in']) || $_SESSION['role'] !== 'admin') {
     header('Location: ../index.php');
     exit;

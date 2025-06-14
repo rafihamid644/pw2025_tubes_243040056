@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt_update = mysqli_prepare($conn, $sql_update);
         mysqli_stmt_bind_param($stmt_update, "si", $role, $id);
         if (mysqli_stmt_execute($stmt_update)) {
-            // Jika berhasil, set pesan sukses dan redirect
+            // Jika berhasil,pesan sukses dan redirect
             $_SESSION['success_message'] = 'Peran pengguna berhasil diperbarui!';
             header('Location: manage_users.php');
             exit;

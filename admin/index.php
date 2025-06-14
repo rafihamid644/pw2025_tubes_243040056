@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// 1. Cek jika user sudah login DAN rolenya adalah 'admin'
+//  Cek user sudah login DAN rolenya adalah 'admin'
 if (!isset($_SESSION['user_logged_in']) || $_SESSION['role'] !== 'admin') {
     // Jika tidak, tendang ke halaman utama
     header('Location: ../index.php');
